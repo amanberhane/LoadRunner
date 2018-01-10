@@ -15,7 +15,6 @@ Action()
 	web_cache_cleanup();
 	web_set_max_html_param_len("99999");
 	
-//	web_set_max_html_param_len("9999999");
 //	web_add_cookie("JSESSIONID=1799059914EFAFAA797E989792478D6C; DOMAIN=test.mytravelsite.carlsonwagonlit.com");
  	web_add_cookie("COOKIE_SUPPORT=true; DOMAIN=test.mytravelsite.carlsonwagonlit.com");
 
