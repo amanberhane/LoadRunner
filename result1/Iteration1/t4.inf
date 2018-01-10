@@ -1,0 +1,13 @@
+[t4]
+SnapshotXmlFile=snapshot_4.xml
+ContentType=text/html
+StepName=Submit Data: SSO.ping
+Total=1
+FileName1=t4.html
+RequestHeaderFile=t4_RequestHeader.txt
+ResponseHeaderFile=t4_ResponseHeader.txt
+RawStepEndTime=1513703212688
+RawStepName=SSO.ping
+RequestBodyFile=t4_RequestBody.txt
+RawStepStartTime=1513703212274
+URL1=https://test.mytravel.carlsonwagonlit.com/idp/CYbOf/resumeSAML20/idp/SSO.ping

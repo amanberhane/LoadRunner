@@ -1,0 +1,13 @@
+[t11]
+SnapshotXmlFile=snapshot_11.xml
+ContentType=text/html
+StepName=Url: guest
+Total=1
+FileName1=t11.html
+RequestHeaderFile=t11_RequestHeader.txt
+ResponseHeaderFile=t11_ResponseHeader.txt
+RawStepEndTime=1513703256108
+RawStepName=guest
+RequestBodyFile=t11_RequestBody.txt
+RawStepStartTime=1513703256060
+URL1=https://test.mytravelsite.carlsonwagonlit.com/c/portal/login?redirect=/group/guest&refererPlid=10697136&p_l_id=20146

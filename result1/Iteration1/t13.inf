@@ -1,0 +1,13 @@
+[t13]
+SnapshotXmlFile=snapshot_13.xml
+ContentType=DummyContentType
+StepName=Url: lwx93sjz
+Total=1
+FileName1=t13.UNK
+RequestHeaderFile=t13_RequestHeader.txt
+ResponseHeaderFile=t13_ResponseHeader.txt
+RawStepEndTime=1513703256398
+RawStepName=lwx93sjz
+RequestBodyFile=t13_RequestBody.txt
+RawStepStartTime=1513703256260
+URL1=file:

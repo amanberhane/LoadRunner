@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Content-Length: 969
+Connection: keep-alive
+Date: Tue, 19 Dec 2017 13:47:19 GMT
+Last-Modified: Tue, 19 Dec 2017 13:47:18 GMT
+ETag: "73c2808725789b1e723163bdc0e0d230"
+Cache-Control: max-age=604800, s-maxage=7200, public
+Content-Encoding: gzip
+Accept-Ranges: bytes
+Server: AmazonS3
+Age: 4816
+X-Cache: Hit from cloudfront
+Via: 1.1 b67f54b549c6579a21be3a5a67642d7a.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: bQv3IXWP8NWFaMKzh0rXdRlR8TbYLCrRN2cNg-itWANXk_Etk1jQAg==
+

@@ -1,0 +1,5 @@
+"app_id=lwx93sjz&v=3&g=d0294981254ef58e1591a551d99f33a86c193883&s=273df56d-184a-4d69-be3e-2ff9d"
+"f361567&i=&r=https%3A%2F%2Ftest.mytravelsite.carlsonwagonlit.com%2Fc%2Fportal%2Flogin%3Fredire"
+"ct%3D%252Fgroup%252Fguest%26refererPlid%3D30692%26p_l_id%3D20146&platform=web&Idempotency-Key="
+"f01400c&user_data=%7B%22anonymous_id%22%3A%2251ab9c69-4e24-4259-a006-ab42e9b3c914%22%7D&refere"
+"r=https%3A%2F%2Ftest.mytravel.carlsonwagonlit.com%2Fidp%2FSSO.saml2"

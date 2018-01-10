@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Date: Tue, 19 Dec 2017 17:06:41 GMT
+Content-Security-Policy: referrer origin
+X-Frame-Options: SAMEORIGIN
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: text/html;charset=utf-8
+Set-Cookie: PF=doN0t1mc0zPPYH09V14vKO;Path=/;Secure;HttpOnly
+Set-Cookie: pfidpaid="";Version=1;Path=/;Expires=Thu, 01-Jan-1970 00:00:00 GMT;Max-Age=0
+Content-Length: 24376
+Set-Cookie: NSC_uftu_qjoh_dmvtufs_mcwt=ffffffff09ddf20745525d5f4f58455e445a4a421577;path=/;secure;httponly
+

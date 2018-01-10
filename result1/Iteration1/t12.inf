@@ -1,0 +1,13 @@
+[t12]
+SnapshotXmlFile=snapshot_12.xml
+ContentType=text/html
+StepName=Submit Data: SSO.saml2_2
+Total=1
+FileName1=t12.html
+RequestHeaderFile=t12_RequestHeader.txt
+ResponseHeaderFile=t12_ResponseHeader.txt
+RawStepEndTime=1513703256250
+RawStepName=SSO.saml2_2
+RequestBodyFile=t12_RequestBody.txt
+RawStepStartTime=1513703256116
+URL1=https://test.mytravel.carlsonwagonlit.com/idp/SSO.saml2

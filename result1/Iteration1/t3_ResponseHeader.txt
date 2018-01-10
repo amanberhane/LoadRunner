@@ -1,0 +1,24 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Origin: *
+Cache-Control: max-age=0, private, must-revalidate
+Content-Encoding: gzip
+Content-Type: application/json; charset=utf-8
+Date: Tue, 19 Dec 2017 17:06:40 GMT
+ETag: W/"8e01c0351956226cccd1635b2276e23f"
+Server: nginx
+Set-Cookie: _mkra_ctxt=642c1431fbd9d9ebb489d5976474838d--200; path=/; max-age=5; HttpOnly; secure
+Status: 200 OK
+Strict-Transport-Security: max-age=31557600; includeSubDomains; preload
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Intercom-Version: b8e747d3f4f503cc7c0c9f65469e9d32c9998dd1
+X-Request-Id: b0duutc2uo242fcrg2g0
+X-Runtime: 0.217847
+X-XSS-Protection: 1; mode=block
+transfer-encoding: chunked
+Connection: keep-alive
+

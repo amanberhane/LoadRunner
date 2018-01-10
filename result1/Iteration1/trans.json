@@ -1,0 +1,27 @@
+[
+    {
+        "transactionName": "Portal_001_IDM",
+        "rawStartTime": 1513703200313,
+        "rawEndTime": 1513703202268
+    },
+    {
+        "transactionName": "Portal_002_Login_&_HomePage",
+        "rawStartTime": 1513703212271,
+        "rawEndTime": 1513703214646
+    },
+    {
+        "transactionName": "Portal_003_My_Trips",
+        "rawStartTime": 1513703234648,
+        "rawEndTime": 1513703235462
+    },
+    {
+        "transactionName": "Portal_004_View_Trip",
+        "rawStartTime": 1513703245464,
+        "rawEndTime": 1513703245880
+    },
+    {
+        "transactionName": "Portal_005_Logout",
+        "rawStartTime": 1513703255882,
+        "rawEndTime": 1513703256980
+    }
+]

@@ -1,0 +1,80 @@
+[
+    {
+        "stepId": "STEP1",
+        "stepName": "Url: test.mytravelsite.carlsonwagonlit.com",
+        "infFile": "t1.inf",
+        "time": 1513703201554
+    },
+    {
+        "stepId": "STEP2",
+        "stepName": "Submit Data: SSO.saml2",
+        "infFile": "t2.inf",
+        "time": 1513703201686
+    },
+    {
+        "stepId": "STEP3",
+        "stepName": "Submit Data: ping",
+        "infFile": "t3.inf",
+        "time": 1513703202267
+    },
+    {
+        "stepId": "STEP4",
+        "stepName": "Submit Data: SSO.ping",
+        "infFile": "t4.inf",
+        "time": 1513703212697
+    },
+    {
+        "stepId": "STEP5",
+        "stepName": "Submit Data: acs",
+        "infFile": "t5.inf",
+        "time": 1513703214646
+    },
+    {
+        "stepId": "STEP6",
+        "stepName": "Url: my-trips",
+        "infFile": "t6.inf",
+        "time": 1513703235462
+    },
+    {
+        "stepId": "STEP7",
+        "stepName": "Custom Request: my-trips_2",
+        "infFile": "t7.inf",
+        "time": 1513703245879
+    },
+    {
+        "stepId": "STEP8",
+        "stepName": "Url: logout",
+        "infFile": "t8.inf",
+        "time": 1513703255918
+    },
+    {
+        "stepId": "STEP9",
+        "stepName": "Submit Data: SLO.saml2",
+        "infFile": "t9.inf",
+        "time": 1513703255970
+    },
+    {
+        "stepId": "STEP10",
+        "stepName": "Submit Data: slo",
+        "infFile": "t10.inf",
+        "time": 1513703256058
+    },
+    {
+        "stepId": "STEP11",
+        "stepName": "Url: guest",
+        "infFile": "t11.inf",
+        "time": 1513703256115
+    },
+    {
+        "stepId": "STEP12",
+        "stepName": "Submit Data: SSO.saml2_2",
+        "infFile": "t12.inf",
+        "time": 1513703256259
+    },
+    {
+        "stepId": "STEP13",
+        "stepName": "Submit Data: ping_2",
+        "infFile": "t14.inf",
+        "time": 1513703256978
+    }
+]

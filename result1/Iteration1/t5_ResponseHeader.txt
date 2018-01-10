@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1
+Content-Encoding: gzip
+X-Request-URL: https://test.mytravelsite.carlsonwagonlit.com/group/zundongreen-sub-7961-zundongreen
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: private, no-cache, no-store, must-revalidate
+Pragma: no-cache
+Liferay-Portal: Liferay DXP Digital Enterprise 7.0.10 GA1 (Wilberforce / Build 7010 / June 15, 2016)
+Content-Type: text/html;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Tue, 19 Dec 2017 17:06:53 GMT
+

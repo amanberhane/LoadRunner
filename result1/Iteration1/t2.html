@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>    <title>myCWT - Your gateway to business travel</title>
+  </head><!--[if gte IE 9 | !IE ]><!-->
+  <base href="https://test.mytravel.carlsonwagonlit.com/"><![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <link href="/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" media="all" type="text/css" href="/assets/css/main.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/assets/js/modernizr-custom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.8.1/bowser.min.js"></script><!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flexibility/2.0.1/flexibility.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script><![endif]-->
+<!--[if gte IE 9 | !IE ]><!-->
+  <script src="https://cdn.worldmate.com/wm-mixpanel-client/cwt-mixpanel.cb7032a405dcd720d17f.js"></script>
+  <script>
+    if (window.cwtMixpanel) {
+      window.cwtMixpanel.cwtInit('1bcf19b82e62fdddf0740e7f74091db5');
+    }
+  </script><![endif]-->
+  <script>
+    /*** Created by sergeykaplan on 06/08/2017. ***/
+var errorIcon = '<i class="cwt-icon cwt-icon-alert p-r-sm"></i> ';
+var isBootstrapSupported = true;
+
+if ( window.bowser && bowser.msie && bowser.version <= 7) {
+  isBootstrapSupported = false;
+}
+
+$(function(){
+  if ( window.bowser && bowser.msie && bowser.version <= 10) {
+    var unsupportedBrowserMsg = '<div class="col-sm-12 bg-warning">' +
+                                  '<p class="warning-not-supported-browser">' +
+                                    '<i class="cwt-icon cwt-icon-alert m-r-sm"></i>' +
+                                    '<b>This version of Internet Explorer is not supported.</b> ' +
+                                    'You’ll need to upgrade to a modern browser in order to use myCWT' +
+                                  '</p>' +
+                                '</div>';
+    $('.page-wrapper').prepend(unsupportedBrowserMsg);
+  }
+});
+
+function getRequestParam(name, url) {
+  url = url || location.search;
+  if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(url))
+
+    return decodeURIComponent(name[1]);
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function Password(el, confirmEl){
+  var alert = el.find('.help-block');
+  var input = el.find('input:password');
+  var passwordIcon = el.find('.cwt-icon.form-control-feedback');
+
+  var self = this;
+  this.error = null;
+  this.isValid = function () {
+
+    self.value = input.val();
+
+    var isValid = self.value && /^([\S*$]){8,32}$/g.test(self.value);
+    self.error = (!isValid) ? errorIcon + "Your password does not meet the password policy" : '';
+    el[self.error && self.error.length ? 'addClass' : 'removeClass']('has-error');
+    alert.html(self.error);
+    confirmEl.val(self.value);
+    return isValid;
+  }
+
+  isBootstrapSupported && input.popover({
+    placement:'left',
+    html: 'true',
+    trigger: 'focus',
+    container: 'body',
+    content:  $('#passwordTip').html()
+  });
+
+  input.on('focus', function(e){
+    resetFieldError(el, alert)
+  });
+  input.on('input', function(e){
+    self.value = jQuery.trim(input.val());
+
+  });
+  togglePassword(input, passwordIcon);
+}
+
+
+function togglePassword(input, icon){
+
+  var showPasswordChars = false;
+  icon.click(function () {
+    showPasswordChars = !showPasswordChars;
+    togglePasswordIcon();
+    togglePasswordInputType();
+  });
+
+  input.on('input', function(e){
+    self.value = jQuery.trim(input.val());
+    togglePasswordIcon();
+  });
+  function togglePasswordIcon(){
+    var iconClass = !self.value ? 'cwt-icon-lock' : showPasswordChars ? 'cwt-icon-hide' : 'cwt-icon-eye';
+    icon
+      .removeClass('cwt-icon-lock cwt-icon-hide cwt-icon-eye')
+      .addClass(iconClass);
+  }
+  function togglePasswordInputType() {
+    var type = showPasswordChars ? 'text' : 'password';
+    input.attr('type', type);
+  }
+}
+
+function requiredField(input, errorMsg){
+  var el = input.parent();
+  var alert = el.find('.help-block');
+  var self = this;
+
+  this.error = null;
+  this.isValid = function (){
+    self.value = input.val();
+    var isValid = self.value && (jQuery.trim(self.value).length);
+    self.error = (!isValid) ? errorIcon +  errorMsg : '';
+    el[self.error && self.error.length ? 'addClass' : 'removeClass']('has-error');
+    alert.html(self.error);
+    return !self.error || !self.error.length;
+  }
+
+  input.on('input', function(e){
+    self.value = e.target.value;
+  });
+
+  input.on('focus', function(e){
+    resetFieldError(el, alert)
+  });
+
+}
+
+function Username(el) {
+  var input = el.find('input:text');
+  var alert = el.find('.help-block');
+  var self = this;
+
+  this.value = input.val();
+  this.error = null;
+  this.isValid = function (){
+    var isValid = self.value && (jQuery.trim(self.value).length >= 6);
+    self.error = (!isValid) ? errorIcon + "Your username should be at least 6 characters long." : '';
+    el[self.error && self.error.length ? 'addClass' : 'removeClass']('has-error');
+    alert.html(self.error);
+    return !self.error || !self.error.length;
+  }
+
+  isBootstrapSupported && input.popover({
+    placement:'bottom',
+    html: 'true',
+    trigger: 'focus',
+    container: 'body',
+    content:  $('#usernameTip').html()
+  });
+
+  input.on('input', function(e){
+    self.value = e.target.value;
+  });
+
+  input.on('focus', function(e){
+    resetFieldError(el, alert)
+  });
+}
+
+function Email(el) {
+  var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var input = el.find('input:text');
+  var alert = el.find('.help-block');
+  var self = this;
+  this.input = input;
+  this.value = null;
+  this.error = null;
+
+  this.isValid = function (){
+    var isValid = self.value && emailRegex.test(jQuery.trim(self.value));
+    self.error = (!isValid) ? errorIcon + "Please enter a valid email address." : '';
+    el[self.error && self.error.length ? 'addClass' : 'removeClass']('has-error');
+    alert.html(self.error);
+    return !self.error|| !self.error.length;
+  }
+
+  input.on('input', function(e){
+    self.value = e.target.value;
+  });
+  input.on('focus', function(e){
+    resetFieldError(el, alert)
+  });
+
+}
+
+function resetFieldError(el, alert) {
+  el.removeClass('has-error');
+  alert.html('');
+}
+
+function moveNext(){
+  var loader = '<div class="clearfix">' +
+      '<div class="loading-animation">Loading&#8230;</div>'+
+      '</div>';
+  $('.submit-btn').html(loader);
+  document.forms[0]['pf.ok'].value = 'clicked';
+  document.forms[0].submit();
+}
+
+function postOnReturn(e) {
+  var keycode;
+  if (window.event) keycode = window.event.keyCode;
+  else if (e) keycode = e.which;
+  else return true;
+
+  if (keycode == 13) {
+    moveNext();
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function forgotPasswordResendEmail(e) {
+  var url = '/profile-management/v1/Users/Password?adapterId=htmlForm2&forgotPasword=true&username=';
+  var headers = {
+    "Content-Type": 'application/x-www-form-urlencoded',
+    "Accept": 'application/json'
+  };
+  resendEmail(e, url, headers);
+}
+
+function registrationResendEmail(event) {
+
+  var url = "/ext/reg/Registration?adapterId=UserReg&email=$email";
+ // var encodedUrl = encodeURIComponent(url);
+  var headers = {
+    "Content-Type": 'application/x-www-form-urlencoded',
+    "Accept": 'application/json'
+  };
+  resendEmail(event, url, headers);
+    if (window.cwtMixpanel) window.cwtMixpanel.track(
+        "Registration \"Check Your Email\" Re-send Email Link Click"
+    );
+}
+
+function resendEmail(e, url, headers) {
+  var el = $(e.target).parent();
+  var elContent = el.html();
+  var spinner = '<div class="small spinner"><div>Loading…</div></div>';
+  var success = function(data){
+    var msg = '<p class="text-success">' +
+      '<i class="cwt-icon cwt-icon-checked"></i> ' +
+        "Email sent!" +
+      '</p>';
+    el.html(msg);
+    setTimeout(function () {
+       el.html(elContent);
+    },3000)
+  };
+  var error = function(error){
+    var msg = '<p class="text-error">'+
+            '<i class="cwt-icon cwt-icon-alert p-r-sm"></i> '+
+        "Something went wrong!"+
+        '</p>';
+    el.html(msg);
+      setTimeout(function () {
+          el.html(elContent);
+      },3000)
+  };
+  el.html(spinner);
+
+  jQuery.ajax({
+    type: 'POST',
+    url: url,
+    headers: headers,
+    dataType: 'json',
+    error: error,
+    success: success
+  });
+
+}
+
+function mailtoTechSupport(){
+  var to = 'myCWTexperience@carlsonwagonlit.com?';
+  var subject = '&subject=myCWT%20-%20Login%20and%20registration';
+  var body = '&body=Thank%20you%20for%20contacting%20our%20Technical%20Support.%0D%0A' +
+      'Please%20provide%20us%20some%20details%20regarding%20your%20inquiry%20' +
+      'so%20that%20we%20can%20resolve%20it%20in%20a%20timely%20manner:%0D%0A%0D%0A' +
+      'Traveler%20Name:%0D%0A' +
+      'Work%20Email:%0D%0A' +
+      'Country:%0D%0A' +
+      'Company%20Name:%0D%0A' +
+      'Issue%20description:%0D%0A';
+
+  var link = 'mailto:' + to + subject + body;
+  return window.location.href = link;
+}
+
+
+function decodeURIParams(query) {
+  if (query == null)
+    query = window.location.search;
+  if (query[0] == '?')
+    query = query.substring(1);
+
+  var params = query.split('&');
+  var result = {};
+  for (var i = 0; i < params.length; i++) {
+    var param = params[i];
+    var pos = param.indexOf('=');
+    if (pos >= 0) {
+      var key = decodeURIComponent(param.substring(0, pos));
+      var val = decodeURIComponent(param.substring(pos + 1));
+      result[key] = val;
+    } else {
+      var key = decodeURIComponent(param);
+      result[key] = true;
+    }
+  }
+  return result;
+}
+
+function encodeURIParams(params, addQuestionMark) {
+  var pairs = [];
+  for (var key in params) if (params.hasOwnProperty(key)) {
+    var value = params[key];
+    if (value != null) /* matches null and undefined */ {
+      pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(value))
+    }
+  }
+  if (pairs.length == 0)
+    return '';
+  return (addQuestionMark ? '?' : '') + pairs.join('&');
+}
+
+function navigateWithURIParams(newParams) {
+  window.location.search = encodeURIParams(jQuery.extend(decodeURIParams(), newParams), true);
+}
+
+
+  </script>
+  <body>
+    <div class="container-fluid">
+      <div class="page-wrapper row">
+        
+        
+        <!------------------------------- Marketing content column ----------------------------->
+        
+        <div class="hidden-sm hidden-xs col-md-7 layout-col" id="left">
+          <div class="row">
+            <div class="col-sm-4 img-square img-1"></div>
+            <div class="col-sm-4 img-square img-2"></div>
+            <div class="col-sm-4 img-square img-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 bg-primary p-lg welcome-msg">
+              <div class="flexbox-container">
+                <div class="flex-center"><img class="m-b" src="/assets/images/myCWT-logo.png" alt="CWT Logo">
+                  <h1>Welcome to <b>myCWT</b>,<br/>  your gateway to business travel</h1>
+                  <p class="m-t">We want to hear from you. <a href=javascript:mailtoTechSupport()>Please send us your feedback.</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 img-square img-4"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 img-square img-5"></div>
+            <div class="col-sm-4 img-square img-6"></div>
+            <div class="col-sm-4 img-square img-7"></div>
+          </div>
+        </div>
+        <!------------------------------- Page content column ----------------------------->
+        <div class="col-md-5 layout-col" id="right">
+          <!--include ../shared/migration-message-->
+          <div class="nav-wrapper p-lg clearfix">
+            <ul class="list-inline navbar-right">
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li data-lng="dk"><a href="javascript:setPFLangCookie('dk')">Danish</a></li>
+                  <li data-lng="nl"><a href="javascript:setPFLangCookie('nl')">Dutch (NL)</a></li>
+                  <li data-lng="en-ca"><a href="javascript:setPFLangCookie('en-ca')">English (Canada)</a></li>
+                  <li data-lng="en-gb"><a href="javascript:setPFLangCookie('en-gb')">English (GB)</a></li>
+                  <li data-lng="en_us"><a href="javascript:setPFLangCookie('en_us')">English (US)</a></li>
+                  <li data-lng="fin"><a href="javascript:setPFLangCookie('fin')">Finnish</a></li>
+                  <li data-lng="fr-ca"><a href="javascript:setPFLangCookie('fr-ca')">French (Canada)</a></li>
+                  <li data-lng="fr"><a href="javascript:setPFLangCookie('fr')">French (FR)</a></li>
+                  <li data-lng="de"><a href="javascript:setPFLangCookie('de')">German</a></li>
+                  <li data-lng="it"><a href="javascript:setPFLangCookie('it')">Italian</a></li>
+                  <li data-lng="no"><a href="javascript:setPFLangCookie('no')">Norwegian</a></li>
+                  <li data-lng="pt-br"><a href="javascript:setPFLangCookie('pt-br')">Portuguese (BR)</a></li>
+                  <li data-lng="ru"><a href="javascript:setPFLangCookie('ru')">Russian</a></li>
+                  <li data-lng="es"><a href="javascript:setPFLangCookie('es')">Spanish (ES)</a></li>
+                  <li data-lng="es-la"><a href="javascript:setPFLangCookie('es-la')">Spanish (Latin America)</a></li>
+                  <li data-lng="sw"><a href="javascript:setPFLangCookie('sw')">Swedish</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <script>
+            jQuery( document ).ready(function() {
+              var userLang = navigator.language || navigator.userLanguage;
+              var langs = JSON.parse('{"dk":"Danish","nl":"Dutch (NL)","en-ca":"English (Canada)","en-gb":"English (GB)","en_us":"English (US)","fin":"Finnish","fr-ca":"French (Canada)","fr":"French (FR)","de":"German","it":"Italian","no":"Norwegian","pt-br":"Portuguese (BR)","ru":"Russian","es":"Spanish (ES)","es-la":"Spanish (Latin America)","sw":"Swedish"}');
+              var currentLang = getCookie('pf-accept-language');
+            
+              if (!currentLang) {
+                return langs[userLang] ? setPFLangCookie(userLang) : setPFLangCookie('en_us');
+              }
+            
+              //$("[data-lng='" + currentLang + "']").remove();
+              $("[data-lng='" + currentLang + "']").addClass("lang-selected");
+              $('.dropdown-toggle').prepend(langs[currentLang]);
+            });
+            function setPFLangCookie(localestr) {
+              var d = new Date();
+              var exdays = 1460;
+              d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+              var expires = "expires=" + d.toUTCString();
+              document.cookie = "pf-accept-language=" + localestr + ";" + expires + ";path=/";
+              window.location.reload();
+            }
+          </script>
+          <div class="form-wrapper">
+            
+            <form method="POST" action="/idp/CYbOf/resumeSAML20/idp/SSO.ping" autocomplete="off">
+              <input type="hidden" name="cSRFToken" value="$cSRFToken">
+              <!-- Server error--><!------------------------------- Server Error ------------------------------------------>
+                            
+              <!-- Page title-->
+              <h3 class="font-bold m-b-lg m-t-lg">Log in to your account</h3>
+              <!-- Page message:-->
+              <!-- If this is your first time accessing this new travel website,-->
+              <!-- you will need to activate your account first.-->
+              <p>If this is your first time accessing this new travel website, you will need to <a href=/ext/reg/Registration?adapterId=UserReg>activate your account</a> first.</p>
+              <!-- Form - Username field-->
+              <div class="form-group has-feedback ping-messages" id="username">                <input class="form-control input-lg required" tabindex="1" type="text" size="36" autocorrect="off" autocapitalize="off" name="pf.username" value="" placeholder="Work email / username">                <!-- Username field feedback--><i class="cwt-icon cwt-icon-user form-control-feedback text-light" aria-hidden="true"></i>
+                <p class="help-block"></p>
+                <p class="m-b-md"><a class="font-bold" href="https://test.mytravel.carlsonwagonlit.com/ext/pwdreset2/ForgotUser?referrer=https%3A%2F%2Ftest.mytravel.carlsonwagonlit.com%2Fidp%2FCYbOf%2FresumeSAML20%2Fidp%2FSSO.ping&adapterId=htmlForm2" onclick="forgotUsernameClicked();" data-mxp-event="Login Screen &quot;Forgot Username&quot; Click">Forgot Username?</a></p>
+              </div>
+              <!-- Form - Password field-->
+              <div class="form-group has-feedback ping-messages" id="password">
+                <input class="form-control input-lg required" tabindex="2" type="password" size="36" name="pf.pass" placeholder="Enter your password">
+                <!-- Password field feedback--><i class="cwt-icon cwt-icon-lock form-control-feedback text-light" aria-hidden="true"></i>
+                <p class="help-block"></p>
+                <p><a class="font-bold" href="https://test.mytravel.carlsonwagonlit.com/ext/pwdreset2/Identify?referrer=https%3A%2F%2Ftest.mytravel.carlsonwagonlit.com%2Fidp%2FCYbOf%2FresumeSAML20%2Fidp%2FSSO.ping&adapterId=htmlForm2" onclick="forgotPasswordClicked();" data-mxp-event="Login Screen &quot;Forgot Password&quot; Click">Forgot password?</a></p>
+              </div>
+              
+              <div class="ping-buttons">
+                <input type="hidden" name="pf.ok">
+                <input type="hidden" name="pf.cancel">
+                <div class="form-group m-t-lg">
+                  <button class="submit-btn btn btn-primary btn-block btn-lg text-uppercase" type="submit" onclick="postNext(&quot;$stage&quot;, event);">Log in</button>
+                </div>
+              </div>
+              
+              <p>Don't have an account?<a class="font-bold m-l-xs" href="/ext/reg/Registration?adapterId=UserReg" data-mxp-event="Login Screen &quot;Sign Up&quot; Click">Sign up</a></p>
+            </form>
+          </div>
+          <div class="footer-links text-center">
+            <ul class="list-inline">
+              <li><a href="javascript:mailtoTechSupport()">Customer Support</a></li>
+              <li class="sep hidden-xs">|</li>
+              <li><a href="https://www.carlsonwagonlit.com/global/en/legal/platform-terms-of-use/" target="_blank">Terms of Use</a></li>
+              <li class="sep hidden-xs">|</li>
+              <li><a href="http://www.carlsonwagonlit.com/content/cwt/global/en/legal/global-privacy-policy.html" target="_blank">Global Privacy Policy</a></a></li>
+              <li class="sep hidden-xs">|</li>
+              <li>©2017 CWT</li>
+            </ul>
+          </div><!--[if gte IE 9 | !IE ]><!-->
+          <script>// Chat Integration
+window.intercomSettings = {
+  app_id: "lwx93sjz"
+};
+
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lwx93sjz';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+
+          </script><![endif]-->
+          <script id="passwordTip" type="text/html">
+            <!--
+            Created by sergeykaplan on 30/08/2017.
+            
+            -->
+            <div class="p pass-policy-tooltip">
+              <p>Password policy</p>
+              <ul class="policy-list">
+                <li>Must be 8-32 characters long</li>
+                <li>Must have at least one non-alphabetic character</li>
+                <li>Must be different from your username</li>
+                <li>Must be different from 5 previous passwords</li>
+              </ul>
+            </div>
+          </script>
+          <script id="usernameTip" type="text/html">
+            <!--
+            Created by sergeykaplan on 30/08/2017.
+            
+            -->
+            <div class="media p-xs">
+              <div class="media-left media-middle lead text-danger p-r p-l-xs b-r b-light"><i class="cwt-icon cwt-icon-alert p-r-sm"></i></div>
+              <div class="media-body p-l">
+                <p class="font-bold m-b-xs">Changing your username</p>
+                <p class="m-b-0">Username other than your work email will prevent you from using CWT To Go.</p>
+              </div>
+            </div>
+          </script>
+        </div>
+      </div>
+      
+      <script>
+        var usernameInput = $('#username').find('input:text');
+        var username = new requiredField(usernameInput, "Please enter your email address/Username");
+        var passwordInput  = $('#password').find('input:password');
+        var password = new requiredField(passwordInput, "Please enter your password");
+        var passwordIcon = $('#password').find('.cwt-icon.form-control-feedback');
+        
+        togglePassword(passwordInput, passwordIcon);
+        
+        if (window.cwtMixpanel) window.cwtMixpanel.track(
+          "Login Screen Displayed",
+          {"Origin": getRequestParam('origin') || "None"}
+        );
+        
+        function forgotPasswordClicked() {
+          if (window.cwtMixpanel) window.cwtMixpanel.track(
+            "Login Screen \"Forgot Password\" Click"
+          );
+        }
+        
+        function forgotUsernameClicked() {
+          if (window.cwtMixpanel) window.cwtMixpanel.track(
+            "Login Screen \"Forgot Username\" Click"
+          );
+        }
+        
+        function postNext(stage,e) {
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+          var isValid = username.isValid();
+          isValid = password.isValid() && isValid;
+          if (isValid) {
+            if (window.cwtMixpanel) window.cwtMixpanel.track(
+              "Login Screen \"Login\" Click"
+            );
+            moveNext();
+          } else {
+            if (window.cwtMixpanel) window.cwtMixpanel.track(
+              "Login Screen \"Login\" Click"
+            );
+            if (window.cwtMixpanel) window.cwtMixpanel.track(
+              "Login Screen Error Displayed",{
+                    "Username was empty": usernameInput.val() === "",
+                    "Password Was Empty": passwordInput.val() === "",
+                    "Username was valid": username.isValid(),
+                    "Is User Registered to IDM": ""
+                }
+            );
+          }
+        
+        
+        }
+      </script>
+    </div>
+  </body>
+</html>

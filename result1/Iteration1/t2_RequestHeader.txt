@@ -1,0 +1,11 @@
+POST /idp/SSO.saml2 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Referer: https://test.mytravelsite.carlsonwagonlit.com/c/portal/login?redirect=%2F&refererPlid=30692&p_l_id=20146
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US
+Accept: */*
+Connection: Keep-Alive
+Host: test.mytravel.carlsonwagonlit.com
+Content-Length: 4133
+
