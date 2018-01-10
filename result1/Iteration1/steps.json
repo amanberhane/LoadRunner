@@ -3,78 +3,78 @@
         "stepId": "STEP1",
         "stepName": "Url: test.mytravelsite.carlsonwagonlit.com",
         "infFile": "t1.inf",
-        "time": 1513703201554
+        "time": 1515605029185
     },
     {
         "stepId": "STEP2",
         "stepName": "Submit Data: SSO.saml2",
         "infFile": "t2.inf",
-        "time": 1513703201686
+        "time": 1515605030095
     },
     {
         "stepId": "STEP3",
         "stepName": "Submit Data: ping",
         "infFile": "t3.inf",
-        "time": 1513703202267
+        "time": 1515605030701
     },
     {
         "stepId": "STEP4",
         "stepName": "Submit Data: SSO.ping",
         "infFile": "t4.inf",
-        "time": 1513703212697
+        "time": 1515605041199
     },
     {
         "stepId": "STEP5",
         "stepName": "Submit Data: acs",
         "infFile": "t5.inf",
-        "time": 1513703214646
+        "time": 1515605048130
     },
     {
         "stepId": "STEP6",
         "stepName": "Url: my-trips",
         "infFile": "t6.inf",
-        "time": 1513703235462
+        "time": 1515605069073
     },
     {
         "stepId": "STEP7",
         "stepName": "Custom Request: my-trips_2",
         "infFile": "t7.inf",
-        "time": 1513703245879
+        "time": 1515605080349
     },
     {
         "stepId": "STEP8",
         "stepName": "Url: logout",
         "infFile": "t8.inf",
-        "time": 1513703255918
+        "time": 1515605090383
     },
     {
         "stepId": "STEP9",
         "stepName": "Submit Data: SLO.saml2",
         "infFile": "t9.inf",
-        "time": 1513703255970
+        "time": 1515605090633
     },
     {
         "stepId": "STEP10",
         "stepName": "Submit Data: slo",
         "infFile": "t10.inf",
-        "time": 1513703256058
+        "time": 1515605090722
     },
     {
         "stepId": "STEP11",
         "stepName": "Url: guest",
         "infFile": "t11.inf",
-        "time": 1513703256115
+        "time": 1515605090776
     },
     {
         "stepId": "STEP12",
         "stepName": "Submit Data: SSO.saml2_2",
         "infFile": "t12.inf",
-        "time": 1513703256259
+        "time": 1515605091402
     },
     {
         "stepId": "STEP13",
         "stepName": "Submit Data: ping_2",
         "infFile": "t14.inf",
-        "time": 1513703256978
+        "time": 1515605092329
     }
 ]

@@ -10,6 +10,7 @@ Cache-Control: private, no-cache, no-store, must-revalidate
 Pragma: no-cache
 Liferay-Portal: Liferay DXP Digital Enterprise 7.0.10 GA1 (Wilberforce / Build 7010 / June 15, 2016)
 Content-Type: text/html;charset=UTF-8
-Content-Length: 8146
-Date: Tue, 19 Dec 2017 17:07:15 GMT
+Transfer-Encoding: chunked
+Date: Wed, 10 Jan 2018 17:24:28 GMT
+Strict-Transport-Security: max-age=157680000
 

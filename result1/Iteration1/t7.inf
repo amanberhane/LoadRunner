@@ -6,8 +6,8 @@ Total=1
 FileName1=t7.json
 RequestHeaderFile=t7_RequestHeader.txt
 ResponseHeaderFile=t7_ResponseHeader.txt
-RawStepEndTime=1513703245869
+RawStepEndTime=1515605080344
 RawStepName=my-trips_2
 RequestBodyFile=t7_RequestBody.txt
-RawStepStartTime=1513703245468
+RawStepStartTime=1515605079077
 URL1=https://test.mytravelsite.carlsonwagonlit.com/group/zundongreen-sub-7961-zundongreen/my-trips?p_p_id=tripdetailportlet_WAR_cwtportalportlet&p_p_lifecycle=2&p_p_resource_id=downloadItinerary

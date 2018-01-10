@@ -7,6 +7,6 @@ Accept-Language: en-US
 Accept: */*
 Connection: Keep-Alive
 Host: test.mytravelsite.carlsonwagonlit.com
-Cookie: COOKIE_SUPPORT=true; JSESSIONID=52D28E58F8FE86978F5D80D50AB9BF11
+Cookie: COOKIE_SUPPORT=true; JSESSIONID=A4834C7A240AFB8E7308F9AEFBA04F48; NSC_UFTU-mjgfsbz-dmvtufs_mcwt=ffffffff09ddf20945525d5f4f58455e445a4a4229a0
 Content-Length: 12046
 

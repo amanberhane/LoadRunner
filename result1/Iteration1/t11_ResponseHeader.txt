@@ -7,5 +7,6 @@ Cache-control: no-cache, no-store
 Pragma: no-cache
 Content-Type: text/html;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Tue, 19 Dec 2017 17:07:36 GMT
+Date: Wed, 10 Jan 2018 17:24:50 GMT
+Strict-Transport-Security: max-age=157680000
 

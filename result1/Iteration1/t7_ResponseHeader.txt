@@ -11,6 +11,7 @@ Pragma: no-cache
 Liferay-Portal: Liferay DXP Digital Enterprise 7.0.10 GA1 (Wilberforce / Build 7010 / June 15, 2016)
 portlet.http-status-code: 200
 Content-Type: application/json;charset=UTF-8
-Content-Length: 565
-Date: Tue, 19 Dec 2017 17:07:26 GMT
+Content-Length: 580
+Date: Wed, 10 Jan 2018 17:24:40 GMT
+Strict-Transport-Security: max-age=157680000
 

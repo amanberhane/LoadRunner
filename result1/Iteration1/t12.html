@@ -12,10 +12,15 @@
   <link href="/assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" media="all" type="text/css" href="/assets/css/main.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://cdn.worldmate.com/js/1.1.2.0/jquery.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="/assets/js/jquery-1.1.2.0.min.js">\x3C/script>')
+    
+  </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="/assets/js/modernizr-custom.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.8.1/bowser.min.js"></script><!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.8.1/bowser.min.js"></script>
+  <script src="/assets/js/newRelic-stage.js"></script><!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flexibility/2.0.1/flexibility.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script><![endif]-->
@@ -446,10 +451,11 @@ function navigateWithURIParams(newParams) {
           </script>
           <div class="form-wrapper">
             
-            <form method="POST" action="/idp/nkvcH/resumeSAML20/idp/SSO.ping" autocomplete="off">
+            <form method="POST" action="/idp/1E8j5/resumeSAML20/idp/SSO.ping" autocomplete="off">
               <input type="hidden" name="cSRFToken" value="$cSRFToken">
               <!-- Server error--><!------------------------------- Server Error ------------------------------------------>
-                            
+              
+              
               <!-- Page title-->
               <h3 class="font-bold m-b-lg m-t-lg">Log in to your account</h3>
               <!-- Page message:-->
@@ -459,14 +465,14 @@ function navigateWithURIParams(newParams) {
               <!-- Form - Username field-->
               <div class="form-group has-feedback ping-messages" id="username">                <input class="form-control input-lg required" tabindex="1" type="text" size="36" autocorrect="off" autocapitalize="off" name="pf.username" value="" placeholder="Work email / username">                <!-- Username field feedback--><i class="cwt-icon cwt-icon-user form-control-feedback text-light" aria-hidden="true"></i>
                 <p class="help-block"></p>
-                <p class="m-b-md"><a class="font-bold" href="https://test.mytravel.carlsonwagonlit.com/ext/pwdreset2/ForgotUser?referrer=https%3A%2F%2Ftest.mytravel.carlsonwagonlit.com%2Fidp%2FnkvcH%2FresumeSAML20%2Fidp%2FSSO.ping&adapterId=htmlForm2" onclick="forgotUsernameClicked();" data-mxp-event="Login Screen &quot;Forgot Username&quot; Click">Forgot Username?</a></p>
+                <p class="m-b-md"><a class="font-bold" href="https://test.mytravel.carlsonwagonlit.com/ext/pwdreset2/ForgotUser?referrer=https%3A%2F%2Ftest.mytravel.carlsonwagonlit.com%2Fidp%2F1E8j5%2FresumeSAML20%2Fidp%2FSSO.ping&adapterId=htmlForm2" onclick="forgotUsernameClicked();" data-mxp-event="Login Screen &quot;Forgot Username&quot; Click">Forgot Username?</a></p>
               </div>
               <!-- Form - Password field-->
               <div class="form-group has-feedback ping-messages" id="password">
                 <input class="form-control input-lg required" tabindex="2" type="password" size="36" name="pf.pass" placeholder="Enter your password">
                 <!-- Password field feedback--><i class="cwt-icon cwt-icon-lock form-control-feedback text-light" aria-hidden="true"></i>
                 <p class="help-block"></p>
-                <p><a class="font-bold" href="https://test.mytravel.carlsonwagonlit.com/ext/pwdreset2/Identify?referrer=https%3A%2F%2Ftest.mytravel.carlsonwagonlit.com%2Fidp%2FnkvcH%2FresumeSAML20%2Fidp%2FSSO.ping&adapterId=htmlForm2" onclick="forgotPasswordClicked();" data-mxp-event="Login Screen &quot;Forgot Password&quot; Click">Forgot password?</a></p>
+                <p><a class="font-bold" href="https://test.mytravel.carlsonwagonlit.com/ext/pwdreset2/Identify?referrer=https%3A%2F%2Ftest.mytravel.carlsonwagonlit.com%2Fidp%2F1E8j5%2FresumeSAML20%2Fidp%2FSSO.ping&adapterId=htmlForm2" onclick="forgotPasswordClicked();" data-mxp-event="Login Screen &quot;Forgot Password&quot; Click">Forgot password?</a></p>
               </div>
               
               <div class="ping-buttons">

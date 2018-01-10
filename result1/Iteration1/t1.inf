@@ -6,8 +6,8 @@ Total=1
 FileName1=t1.html
 RequestHeaderFile=t1_RequestHeader.txt
 ResponseHeaderFile=t1_ResponseHeader.txt
-RawStepEndTime=1513703201536
+RawStepEndTime=1515605029182
 RawStepName=test.mytravelsite.carlsonwagonlit.com
 RequestBodyFile=t1_RequestBody.txt
-RawStepStartTime=1513703200314
+RawStepStartTime=1515605027398
 URL1=https://test.mytravelsite.carlsonwagonlit.com/c/portal/login?redirect=/group/guest&refererPlid=10697136&p_l_id=20146

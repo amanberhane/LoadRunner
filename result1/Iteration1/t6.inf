@@ -6,8 +6,8 @@ Total=1
 FileName1=t6.html
 RequestHeaderFile=t6_RequestHeader.txt
 ResponseHeaderFile=t6_ResponseHeader.txt
-RawStepEndTime=1513703235452
+RawStepEndTime=1515605069069
 RawStepName=my-trips
 RequestBodyFile=t6_RequestBody.txt
-RawStepStartTime=1513703234649
+RawStepStartTime=1515605068134
 URL1=https://test.mytravelsite.carlsonwagonlit.com/group/zundongreen-sub-7961-zundongreen/my-trips?zx=uxiwr5e3oyc6
